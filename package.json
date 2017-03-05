@@ -1,0 +1,9 @@
+{
+  "name": "cycle-driver",
+  "version": "1.0.0",
+  "description": "Create custom async drivers easily",
+  "main": "dist/index.js",
+  "repository": "git@github.com:Alex0007/cycle-driver.git",
+  "author": "Alex0007 <Alex0007lolpvp@gmail.com>",
+  "license": "MIT"
+}
