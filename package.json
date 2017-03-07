@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "Create custom async drivers easily",
   "main": "dist/index.js",
-  "typings": "index.d.ts",
+  "typings": "typings/index.d.ts",
   "scripts": {
-    "lint": "tslint -c tslint.json **.ts **/**.ts",
+    "lint": "tslint -c tslint.json **.ts **/**.ts --exclude 'typings/**'",
     "test": "ava test/",
     "ts": "tsc -p ."
   },
   "dependencies": {
-    "@cycle/run": "^1.0.0",
+    "@cycle/run": "^3.0.0",
     "xstream": "^10.3.0"
   },
   "devDependencies": {

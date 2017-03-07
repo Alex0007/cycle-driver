@@ -34,9 +34,9 @@
     ansi-styles "^2.2.1"
     esutils "^2.0.2"
 
-"@cycle/run@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@cycle/run/-/run-1.0.0.tgz#67d3d9008f722a6e5c41bddd415abf5e615ce6f8"
+"@cycle/run@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@cycle/run/-/run-3.0.0.tgz#947801be829110e9617e0156025cacf299119cad"
   dependencies:
     xstream "10.x"
 
