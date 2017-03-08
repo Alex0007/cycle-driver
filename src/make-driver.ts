@@ -36,7 +36,7 @@ export function makeAsyncDriver<Req, Res>(options: MakeAsyncDriverOptions<Req, R
 
     const asyncDriver: Driver<Stream<Req>, AsyncDriverSource<Req, Res>> = (driverRequests$) => {
         const response$$ = driverRequests$.map(driverRequestsToResponse$);
-        const asyncSource = new MainAsyncDriverSource(response$$);
+        const asyncSource = new MainAsyncDriverSource<Req, Res>(response$$);
 
         response$$.addListener(noop);
 
