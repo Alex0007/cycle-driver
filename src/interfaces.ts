@@ -1,4 +1,4 @@
-import { Stream } from 'xstream';
+import { MemoryStream, Stream } from 'xstream';
 
 export interface ResponseStreamBase<Req> {
     request: Req & { category?: string };
@@ -19,5 +19,5 @@ export interface MakeAsyncDriverOptions<Req, Res> {
 
 export interface AsyncDriverSource<Req, Res> {
     filter<S extends AsyncDriverSource<Req, Res>>(predicate: (request: Req) => boolean): S;
-    select(category?: string): Stream<Res>;
+    select(category?: string): Stream<MemoryStream<Res> & ResponseStreamBase<Req>>;
 }
