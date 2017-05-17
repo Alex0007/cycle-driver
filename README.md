@@ -2,4 +2,4 @@
 
 Helps you to create custom drivers in cycle.js with async side-effects. Check out `typings` folder to check its API.
 
-Inspired by `cycle-async-driver` and `@cycle/http`
+Inspired by `cycle-async-driver` and `@cycle/http` (it's actually a copied code from @cycle/http mostly)

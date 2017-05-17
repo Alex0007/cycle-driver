@@ -17,14 +17,14 @@ function createResponse$(request, handler) {
 function makeAsyncDriver(options) {
     const driverRequestsToResponse$ = (request) => {
         let response$ = createResponse$(request, options.handler).remember();
-        Object.defineProperty(response$, 'request', {
-            value: request,
-            writable: false
-        });
         if (!options.lazy) {
             response$.addListener({ next: noop });
         }
         response$ = adapt_1.adapt(response$);
+        Object.defineProperty(response$, 'request', {
+            value: request,
+            writable: false
+        });
         return response$;
     };
     const asyncDriver = (driverRequests$) => {

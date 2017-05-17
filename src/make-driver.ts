@@ -23,16 +23,16 @@ export function makeAsyncDriver<Req, Res>(options: MakeAsyncDriverOptions<Req, R
     const driverRequestsToResponse$ = (request: Req): MemoryStream<Res> & ResponseStreamBase<Req> => {
         let response$ = createResponse$<Req, Res>(request, options.handler).remember();
 
-        Object.defineProperty(response$, 'request', {
-            value: request,
-            writable: false
-        });
-
         if (!options.lazy) {
             response$.addListener({ next: noop });
         }
 
         response$ = adapt(response$);
+
+        Object.defineProperty(response$, 'request', {
+            value: request,
+            writable: false
+        });
 
         return response$ as (MemoryStream<Res> & ResponseStreamBase<Req>);
     };
