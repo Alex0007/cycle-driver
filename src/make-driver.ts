@@ -28,11 +28,11 @@ export function makeAsyncDriver<Req, Res>(options: MakeAsyncDriverOptions<Req, R
             writable: false
         });
 
-        response$ = adapt(response$);
-
         if (!options.lazy) {
             response$.addListener({ next: noop });
         }
+
+        response$ = adapt(response$);
 
         return response$ as (MemoryStream<Res> & ResponseStreamBase<Req>);
     };

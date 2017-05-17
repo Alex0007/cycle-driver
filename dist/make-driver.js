@@ -21,10 +21,10 @@ function makeAsyncDriver(options) {
             value: request,
             writable: false
         });
-        response$ = adapt_1.adapt(response$);
         if (!options.lazy) {
             response$.addListener({ next: noop });
         }
+        response$ = adapt_1.adapt(response$);
         return response$;
     };
     const asyncDriver = (driverRequests$) => {
