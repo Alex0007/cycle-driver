@@ -1,6 +1,6 @@
 {
   "name": "cycle-driver",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Create custom async drivers easily",
   "main": "dist/index.js",
   "typings": "typings/index.d.ts",
@@ -10,14 +10,14 @@
     "ts": "tsc -p ."
   },
   "dependencies": {
-    "@cycle/run": "^3.0.0",
-    "xstream": "^10.3.0"
+    "@cycle/run": "^3.1.0",
+    "xstream": "^10.8.0"
   },
   "devDependencies": {
-    "ava": "^0.18.2",
-    "rxjs": "^5.2.0",
-    "tslint": "^4.5.1",
-    "typescript": "^2.2.1"
+    "ava": "^0.19.1",
+    "rxjs": "^5.4.0",
+    "tslint": "^5.2.0",
+    "typescript": "^2.3.2"
   },
   "repository": "git@github.com:Alex0007/cycle-driver.git",
   "author": "Alex0007 <Alex0007lolpvp@gmail.com>",

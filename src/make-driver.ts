@@ -1,4 +1,5 @@
 import { Driver } from '@cycle/run';
+import { adapt } from '@cycle/run/lib/adapt';
 import { Stream } from 'xstream';
 import xs, { MemoryStream } from 'xstream';
 
@@ -20,12 +21,14 @@ function createResponse$<Req, Res>(request: Req, handler: (requestOptions: Req) 
 
 export function makeAsyncDriver<Req, Res>(options: MakeAsyncDriverOptions<Req, Res>) {
     const driverRequestsToResponse$ = (request: Req): MemoryStream<Res> & ResponseStreamBase<Req> => {
-        const response$ = createResponse$<Req, Res>(request, options.handler).remember();
+        let response$ = createResponse$<Req, Res>(request, options.handler).remember();
 
         Object.defineProperty(response$, 'request', {
             value: request,
             writable: false
         });
+
+        response$ = adapt(response$);
 
         if (!options.lazy) {
             response$.addListener({ next: noop });

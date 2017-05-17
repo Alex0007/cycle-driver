@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const adapt_1 = require("@cycle/run/lib/adapt");
 const xstream_1 = require("xstream");
 const AsyncDriverSource_1 = require("./AsyncDriverSource");
 const noop = () => undefined;
@@ -15,11 +16,12 @@ function createResponse$(request, handler) {
 }
 function makeAsyncDriver(options) {
     const driverRequestsToResponse$ = (request) => {
-        const response$ = createResponse$(request, options.handler).remember();
+        let response$ = createResponse$(request, options.handler).remember();
         Object.defineProperty(response$, 'request', {
             value: request,
             writable: false
         });
+        response$ = adapt_1.adapt(response$);
         if (!options.lazy) {
             response$.addListener({ next: noop });
         }
