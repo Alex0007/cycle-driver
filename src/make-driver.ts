@@ -1,7 +1,6 @@
 import { Driver } from '@cycle/run';
 import { adapt } from '@cycle/run/lib/adapt';
-import { Stream } from 'xstream';
-import xs, { MemoryStream } from 'xstream';
+import xs, { MemoryStream, Stream } from 'xstream';
 
 import { MainAsyncDriverSource } from './AsyncDriverSource';
 import { AsyncDriverSource, MakeAsyncDriverOptions, ResponseStreamBase } from './interfaces';
@@ -41,7 +40,7 @@ export function makeAsyncDriver<Req, Res>(options: MakeAsyncDriverOptions<Req, R
         const response$$ = driverRequests$.map(driverRequestsToResponse$);
         const asyncSource = new MainAsyncDriverSource<Req, Res>(response$$);
 
-        response$$.addListener(noop);
+        response$$.addListener({ next: noop });
 
         return asyncSource;
     };

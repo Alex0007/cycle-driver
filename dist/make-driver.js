@@ -30,7 +30,7 @@ function makeAsyncDriver(options) {
     const asyncDriver = (driverRequests$) => {
         const response$$ = driverRequests$.map(driverRequestsToResponse$);
         const asyncSource = new AsyncDriverSource_1.MainAsyncDriverSource(response$$);
-        response$$.addListener(noop);
+        response$$.addListener({ next: noop });
         return asyncSource;
     };
     return asyncDriver;

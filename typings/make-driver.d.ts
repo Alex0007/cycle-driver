@@ -1,4 +1,4 @@
 import { Driver } from '@cycle/run';
-import { Stream } from 'xstream';
+import xs from 'xstream';
 import { AsyncDriverSource, MakeAsyncDriverOptions } from './interfaces';
-export declare function makeAsyncDriver<Req, Res>(options: MakeAsyncDriverOptions<Req, Res>): Driver<Stream<Req>, AsyncDriverSource<Req, Res>>;
+export declare function makeAsyncDriver<Req, Res>(options: MakeAsyncDriverOptions<Req, Res>): Driver<xs<Req>, AsyncDriverSource<Req, Res>>;

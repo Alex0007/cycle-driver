@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@cycle/run": "^3.1.0",
-    "xstream": "^11.0.0"
+    "xstream": "^10.9.0"
   },
   "devDependencies": {
     "ava": "^0.22.0",
